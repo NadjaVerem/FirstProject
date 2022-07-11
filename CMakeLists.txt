@@ -21,3 +21,4 @@ endif()
 
 add_subdirectory(FirstProject)
 add_subdirectory(SecondProject)
+add_subdirectory(ThirdProject)
