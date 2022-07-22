@@ -3,6 +3,7 @@ project(FourthProject VERSION 0.1 LANGUAGES CXX)
 set(PROJECT_SOURCES
         src/main.cpp
         qml/qml.qrc
+        rsc/rsc.qrc
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)

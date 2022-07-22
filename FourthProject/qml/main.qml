@@ -9,93 +9,58 @@ Window {
     title: qsTr("Hello World")
 
     Rectangle {
+        id: rect
 
-        id:rect
-        width: parent.width / 2 +80
+        width: parent.width / 2 + 80
         height: parent.height / 2 + 80
         anchors.centerIn: parent
         border.color: "black"
         border.width: 3
 
         ListModel {
-
             id: dataModel
 
             ListElement {
-                color: "white"
-                texts: [
-                    ListElement { text: "Item 1" }
-                ]
+                myText: "Item 1"
+                myColor: "green"
             }
 
             ListElement {
-                color: "white"
-                texts: [
-                    ListElement { text: "Item 2" }
-                ]
+                myText: "Item 2"
+                myColor: "red"
             }
 
             ListElement {
-                color: "white"
-                texts: [
-                    ListElement { text: "Item 3" }
-                ]
+                myText: "Item 3"
+                myColor: "yellow"
             }
 
             ListElement {
-                color: "white"
-                texts: [
-                    ListElement { text: "Item 4" }
-                ]
+                myText: "Item 4"
+                myColor: "black"
+            }
+
+            ListElement {
+                myText: "Item 5"
+                myColor: "grey"
             }
         }
-          ListView {
 
+        ListView {
             id: view
+
             anchors.margins: 10
             anchors.fill: rect
             spacing: 10
             model: dataModel
+            clip: true
 
-            delegate: Rectangle {
-
-                width: view.width
-                height: 100
-                color: "white"
-                border.color: "black"
-                border.width: 3
-                anchors.centerIn: rect
-
-                Button{
-
-                    height: parent.height
-                    width: parent.width
-                    text: btnName
-                    onClicked: console.log
-                }
-
-                Row {
-
-                    anchors.margins: 10
-                    anchors.left: parent.left
-                    anchors.verticalCenter: parent.verticalCenter
-                    spacing: 10
-
-                    Repeater {
-                        model: texts
-                        delegate: Text {
-                            verticalAlignment: Text.AlignVCenter
-                            renderType: Text.NativeRendering
-                            text: model.text
-                                                  }
-                        //                        delegate: Button{
-                        //                            height: 80
-                        //                            width: parent.width
-                        //                            text: "Ghbd"
-                        //                            onClicked:
-                        //}
-                    }
-                }
+            delegate: Button {
+                width: parent.width
+                height: 80
+                text: myText
+                icon.source: "qrc:/image2.png"
+                icon.color: myColor
             }
         }
     }
