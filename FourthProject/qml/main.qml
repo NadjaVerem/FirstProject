@@ -55,13 +55,50 @@ Window {
             model: dataModel
             clip: true
 
-            delegate: Button {
-                width: parent.width
-                height: 80
-                text: myText
-                icon.source: "qrc:/image2.png"
-                icon.color: myColor
+            Image {
+                id: name
+                source: "file"
             }
+
+            delegate: Rectangle {
+                id:rect2
+
+                width: parent.width
+                height:  80
+                border.color: "black"
+                border.width: 3
+
+                Row {
+                    spacing: 1
+
+                    Image {
+                        source: "qrc:/image.svg"
+                    }
+
+                    Text {
+                        text: qsTr("Love")
+                    }
+
+                    Image {
+                        source: "qrc:/image5.svg"
+                    }
+
+                    Text {
+                        text: qsTr("You")
+                    }
+
+                    Image {
+                        source: "qrc:/image3.jpg"
+                    }
+                }
+            }
+//            delegate: Button {
+//                width: parent.width
+//                height: 80
+//                text: myText
+//                icon.source: "qrc:/image2.png"
+//                icon.color: myColor
+//            }
         }
     }
 }

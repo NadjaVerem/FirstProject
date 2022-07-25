@@ -2,5 +2,8 @@
     <qresource prefix="/">
         <file>image.svg</file>
         <file>image2.png</file>
+        <file>image3.jpg</file>
+        <file>image4.svg</file>
+        <file>image5.svg</file>
     </qresource>
 </RCC>
