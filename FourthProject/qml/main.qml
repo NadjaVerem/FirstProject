@@ -10,7 +10,6 @@ Window {
 
     Rectangle {
         id: rect
-
         width: parent.width / 2 + 80
         height: parent.height / 2 + 80
         anchors.centerIn: parent
@@ -48,57 +47,62 @@ Window {
 
         ListView {
             id: view
-
             anchors.margins: 10
             anchors.fill: rect
             spacing: 10
             model: dataModel
             clip: true
+
             Image {
                 id: name
                 source: "file"
             }
 
             delegate: Rectangle {
-            width: parent.width
-            height:  80
-            border.color: "black"
-            border.width: 3
-            Row {
+                width: parent.width
+                height: 80
+                border.color:"black"
+                border.width: 3
 
-           spacing: 12
+                Row {
+                    spacing: 12
 
-            Image {
-                source: "qrc:/image.svg"
+                    Image {
+                        source: "qrc:/image.svg"
+                        height: 60
+                        width: 60
+                    }
+
+                    Text {
+                        text: qsTr("Love")
+                        color: "red"
+                    }
+
+                    Image {
+                        source: "qrc:/image2.png"
+                        height: 60
+                        width: 60
+                    }
+
+                    Text {
+                        text: qsTr("You")
+                        color: "red"
+                    }
+
+                    Image {
+                        source: "qrc:/image3.jpg"
+                        height: 60
+                        width: 60
+                    }
+                }
             }
-            Text {
-                text: qsTr("Love")
-                color: "red"
-            }
-            Image {
-                source: "qrc:/image2.png"
-
-            }
-            Text {
-                text: qsTr("You")
-                color: "pink"
-           }
-            Image {
-                source: "qrc:/image3.jpg"
-            }
-            }
-            }
-
-
-
-
-//            delegate: Button {
-//                width: parent.width
-//                height: 80
-//                text: myText
-//                icon.source: "qrc:/image2.png"
-//                icon.color: myColor
-//            }
         }
+        //            delegate: Button {
+        //                width: parent.width
+        //                height: 80
+        //                text: myText
+        //                icon.source: "qrc:/image2.png"
+        //                icon.color: myColor
+        //            }
     }
 }
