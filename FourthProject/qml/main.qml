@@ -54,44 +54,44 @@ Window {
             spacing: 10
             model: dataModel
             clip: true
-
             Image {
                 id: name
                 source: "file"
             }
 
             delegate: Rectangle {
-                id:rect2
+            width: parent.width
+            height:  80
+            border.color: "black"
+            border.width: 3
+            Row {
 
-                width: parent.width
-                height:  80
-                border.color: "black"
-                border.width: 3
+           spacing: 12
 
-                Row {
-                    spacing: 1
-
-                    Image {
-                        source: "qrc:/image.svg"
-                    }
-
-                    Text {
-                        text: qsTr("Love")
-                    }
-
-                    Image {
-                        source: "qrc:/image5.svg"
-                    }
-
-                    Text {
-                        text: qsTr("You")
-                    }
-
-                    Image {
-                        source: "qrc:/image3.jpg"
-                    }
-                }
+            Image {
+                source: "qrc:/image.svg"
             }
+            Text {
+                text: qsTr("Love")
+                color: "red"
+            }
+            Image {
+                source: "qrc:/image2.png"
+
+            }
+            Text {
+                text: qsTr("You")
+                color: "pink"
+           }
+            Image {
+                source: "qrc:/image3.jpg"
+            }
+            }
+            }
+
+
+
+
 //            delegate: Button {
 //                width: parent.width
 //                height: 80
