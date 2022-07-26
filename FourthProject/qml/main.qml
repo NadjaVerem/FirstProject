@@ -59,13 +59,24 @@ Window {
             }
 
             delegate: Rectangle {
+                id:rect2
                 width: parent.width
                 height: 80
                 border.color:"black"
                 border.width: 3
 
+                Button {
+                    width: parent.width - 3
+                    height: parent.height -3
+                    onClicked: {
+                        console.log(myText)
+                    }
+                }
+
                 Row {
                     spacing: 12
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    anchors.verticalCenter: parent.verticalCenter
 
                     Image {
                         source: "qrc:/image.svg"
@@ -74,8 +85,8 @@ Window {
                     }
 
                     Text {
-                        text: qsTr("Love")
-                        color: "red"
+                        text: myText
+                        color: myColor
                     }
 
                     Image {
@@ -85,8 +96,8 @@ Window {
                     }
 
                     Text {
-                        text: qsTr("You")
-                        color: "red"
+                        text: myText
+                        color: myColor
                     }
 
                     Image {
