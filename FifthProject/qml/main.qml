@@ -2,6 +2,7 @@ import QtQuick 2.0
 import QtQuick.Controls 2.12
 import QtQuick.Layouts 1.12
 import QtQuick.Controls.Material 2.3
+import Qt.labs.platform 1.1
 ApplicationWindow {
     id: window
     width: 850
@@ -128,8 +129,8 @@ ApplicationWindow {
                         }
                     ]
                     transitions: Transition {
-                            NumberAnimation { properties: "x,y"; easing.type: Easing.InOutQuad }
-                        }
+                        NumberAnimation { properties: "x,y"; easing.type: Easing.InOutQuad }
+                    }
                 }
 
 
@@ -162,11 +163,11 @@ ApplicationWindow {
                     anchors.bottom: parent.bottom
                     anchors.horizontalCenter: parent.horizontalCenter
                     anchors.bottomMargin: 25
-//                    Rectangle {
-//                        width: page1.width / 3
-//                        height: parent.height / 3
-//                        color: "black "
-//                        anchors.centerIn: page1.parent
+                    //                    Rectangle {
+                    //                        width: page1.width / 3
+                    //                        height: parent.height / 3
+                    //                        color: "black "
+                    //                        anchors.centerIn: page1.parent
 
 
 
@@ -194,7 +195,7 @@ ApplicationWindow {
                         }
 
                     }
-//                    }
+                    //                    }
                     Button {
                         width: 150
                         height: 100
@@ -268,39 +269,140 @@ ApplicationWindow {
 
                     }
                 }
-//                Rectangle {
-//                    id: rect3
-//                    width: 100; height: 100
-//                    color: "blue"
+                //                Rectangle {
+                //                    id: rect3
+                //                    width: 100; height: 100
+                //                    color: "blue"
 
-//                    MouseArea {
-//                        id: mouseArea
-//                        anchors.fill: parent
-//                    }
+                //                    MouseArea {
+                //                        id: mouseArea
+                //                        anchors.fill: parent
+                //                    }
 
-//                    states: State {
-//                        name: "moved"; when: mouseArea.pressed
-//                        PropertyChanges { target: rect; x: 50; y: 50 }
-//                    }
+                //                    states: State {
+                //                        name: "moved"; when: mouseArea.pressed
+                //                        PropertyChanges { target: rect; x: 50; y: 50 }
+                //                    }
 
-//                    transitions: Transition {
-//                        NumberAnimation { properties: "x,y"; easing.type: Easing.InOutQuad }
-//                    }
-//                }
-
-            }
-            Page1 {
-                rectColor: "white"
+                //                    transitions: Transition {
+                //                        NumberAnimation { properties: "x,y"; easing.type: Easing.InOutQuad }
+                //                    }
+                //                }
 
             }
-            Page1 {
-                rectColor: "black"
-            }
-            Page1 {
-                rectColor: "blue"
+            Page {
+                property string modelRole: "Name"
+                property ListModel listModel: ListModel {}
+
+                Rectangle {
+                    id:rect2
+                    width: parent.width / 2
+                    height: parent.height
+                    color: "transparent"
+                    border {
+                        color: (result === 1) ? "green" : ((result === 0) ? "red" : "gray")
+                        width: 2
+                    }
+
+                    ColumnLayout {
+                        anchors.fill: parent
+                        anchors.margins: 50
+
+                        Rectangle {
+                            id:rect3
+                            Layout.fillWidth: true
+                            Layout.preferredHeight: 1
+                            color: "gray"
+                        }
+
+                        ScrollView {
+                            Layout.fillWidth: true
+                            Layout.fillHeight: true
+                        }
+                    }
+                }
+                Text {
+                    anchors.top: rect2.top
+                    anchors.horizontalCenter: rect2.horizontalCenter
+                    anchors.topMargin:  15
+                    font.pointSize: 14
+                    color: "black"
+                    text: qsTr("Name")
+                }
+                //                Rectangle {
+                //                    height: 100
+                //                    width: 100
+                //                    anchors.left: rect2.left
+                //                    anchors.top: rect2.top
+                //                    color: "white"
+
+                Text {
+                    text: qsTr("№")
+                    anchors.left: rect2.left
+                    anchors.top: rect2.top
+                    anchors.leftMargin: 25
+                    anchors.topMargin: 20
+                    color: "black"
+                    font.pointSize: 14
+                }
+                Column {
+                    spacing: 15
+                    //                        anchors.centerIn: parent
+
+                    anchors.left: rect2.right
+                    anchors.leftMargin: 20
+                    anchors.topMargin: 200
+                    Button {
+                        id:button
+                        height: 50
+                        width: 80
+                        Text {
+                            anchors.centerIn: button
+                            color: "black"
+                            text: "+"
+                            font.pointSize: 14
+                        }
+                    }
+
+                    Button {
+                        id:button2
+                        height: 50
+                        width: 80
+//                        icon.source: "qrc:image10.jpg"
+                    }
+
+
+                Button {
+                    id:button3
+                    height: 50
+                    width: 80
+
+                    Text {
+                        anchors.top: button3.top
+                        anchors.left: button3.left
+                        anchors.leftMargin: 30
+                        anchors.topMargin: 2
+                        color: "grey"
+                        text: "_"
+                        font.pointSize: 20
+                    }
+                }
+                }
             }
         }
     }
 
 }
+
+
+Page1 {
+    rectColor: "black"
+}
+Page1 {
+    rectColor: "blue"
+}
+}
+
+
+
 
