@@ -23,9 +23,9 @@ ApplicationWindow {
 
         width: 100
         model: [
-            "rhzr",
+            "Recognizers",
             "vvrver",
-            "vfgfnnr",
+            "Main",
             "btber"
 
         ]
@@ -73,7 +73,7 @@ ApplicationWindow {
             }
 
             Page3 {
-                rectColor: "black"
+
             }
 
             Page4 {
